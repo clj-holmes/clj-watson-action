@@ -1,0 +1,34 @@
+name: 'clj-watson (Clojure)'
+author: 'clj-holmes'
+description: 'Executes clj-watson dependencies security scan in clojure/clojurescript projects.'
+inputs:
+  deps-edn-path:
+    description: 'path to the deps.edn file to be scanned'
+    required: true
+  dependency-check-properties:
+    description: 'path of a dependency-check properties file. If not provided uses resources/dependency-check.properties.'
+    required: false
+  output-type:
+    description: 'Output type'
+    required: false
+    default: 'stdout'
+  fail-on-result:
+    description: 'Enable or disable fail if results were found'
+    required: false
+  suggest-fix:
+    description: 'Suggest a new deps.edn file fixing all vulnerabilities found.'
+    required: false
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.deps-edn-path }}
+    - ${{ inputs.dependency-check-properties }}
+    - ${{ inputs.output-type }}
+    - ${{ inputs.fail-on-result }}
+    - ${{ inputs.suggest-fix }}
+
+branding:
+ color: gray-dark
+ icon: shield

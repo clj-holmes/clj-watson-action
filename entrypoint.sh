@@ -30,4 +30,4 @@ if [[ $suggestion_fix  == "true" ]]; then
 fi
 
 cd /github/workspace/
-clojure -Sdeps "{:deps {io.github.clj-holmes/clj-watson {:git/tag \"${clj_watson_tag}\" :git/sha \"${clj_watson_sha}\"}}}" -M -m clj-watson.cli "$output_cmd"
+clojure -Sdeps "{:deps {io.github.clj-holmes/clj-watson {:git/tag \"${clj_watson_tag}\" :git/sha \"${clj_watson_sha}\"}}}" -M -m clj-watson.cli $output_cmd

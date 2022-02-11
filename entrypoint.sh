@@ -22,7 +22,7 @@ if [[ ! -z $dependency_check_properties ]]; then
 fi
 
 if [[ ! -z $output_type ]]; then
-  output_cmd="${output_cmd} -t ${output_type}";
+  output_cmd="${output_cmd} -o ${output_type}";
 fi
 
 if [[ $suggestion_fix  == "true" ]]; then

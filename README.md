@@ -22,7 +22,7 @@ It's also possible to specify the following options:
   uses: clj-holmes/clj-watson-action@main
   with:
     deps-edn-path: 'deps.edn'
-    output-type: 'output'
+    output-type: 'stdout'
     suggest-fix: 'true'
     fail-on-result: 'true'
 ```

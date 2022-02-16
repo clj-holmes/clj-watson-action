@@ -6,8 +6,8 @@ output_type="$3"
 fail_on_result="$4"
 suggestion_fix="$5"
 
-clj_watson_tag="v2.1.2"
-clj_watson_sha="5e43eae"
+clj_watson_tag="v2.1.3"
+clj_watson_sha="19636f2"
 
 output_cmd="scan -p ${deps_edn_path}"
 

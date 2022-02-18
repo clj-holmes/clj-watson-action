@@ -1,20 +1,40 @@
 name: 'clj-watson (Clojure)'
 author: 'clj-holmes'
-description: 'Executes clj-watson dependencies security scan in clojure/clojurescript projects.'
+description: 'Executes clj-watson dependency security scan in clojure/clojurescript projects.'
 inputs:
+  clj-watson-tag:
+    description: "clj-watson release tag"
+    required: true
+
+  clj-watson-sha:
+    description: "clj-watson release sha"
+    required: true
+
   deps-edn-path:
     description: 'path to the deps.edn file to be scanned'
     required: true
+
+  aliases:
+    description: 'aliases to be scanned alongside with the root deps. (separete which one using comma)'
+    required: false
+
   dependency-check-properties:
     description: 'path of a dependency-check properties file. If not provided uses resources/dependency-check.properties.'
     required: false
+
+  database-strategy:
+    description: 'vulnerability database strategy, dependency-check or github-advisory'
+    required: false
+
   output-type:
     description: 'Output type'
     required: false
     default: 'stdout'
+
   fail-on-result:
     description: 'Enable or disable fail if results were found'
     required: false
+
   suggest-fix:
     description: 'Suggest a new deps.edn file fixing all vulnerabilities found.'
     required: false
@@ -23,12 +43,16 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
+    - ${{ inputs.clj-watson-tag }}
+    - ${{ inputs.clj-watson-sha }}
     - ${{ inputs.deps-edn-path }}
+    - ${{ inputs.aliases }}
     - ${{ inputs.dependency-check-properties }}
     - ${{ inputs.output-type }}
     - ${{ inputs.fail-on-result }}
     - ${{ inputs.suggest-fix }}
+    - ${{ inputs.database-strategy }}
 
 branding:
- color: gray-dark
- icon: shield
+  color: gray-dark
+  icon: shield

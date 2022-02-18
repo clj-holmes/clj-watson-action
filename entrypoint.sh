@@ -39,7 +39,7 @@ if [[ $suggestion_fix  == "true" ]]; then
   output_cmd="${output_cmd} -s";
 fi
 
-if [[ ! -z $database_strategy]]; then
+if [[ ! -z $database_strategy ]]; then
   output_cmd="${output_cmd} -t ${database_strategy}";
 fi
 

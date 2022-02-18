@@ -10,16 +10,16 @@ fail_on_result="$7"
 suggestion_fix="$8"
 database_strategy="$9"
 
-output_cmd="scan -p ${deps_edn_path}"
+output_cmd="-p ${deps_edn_path}"
 
-if [[ ! -z $aliases ]]; then
-  IFS=','
-  read -a strarr <<< "$aliases"
-  for alias in "${strarr[@]}";
-  do
-    output_cmd="${output_cmd} -a ${alias}"
-  done
-fi
+#if [[ ! -z $aliases ]]; then
+#  IFS=','
+#  read -a strarr <<< "$aliases"
+#  for alias in "${strarr[@]}";
+#  do
+#    output_cmd="${output_cmd} -a ${alias}"
+#  done
+#fi
 
 if [[ $fail_on_result == "true" ]]; then
   output_cmd="${output_cmd} --fail-on-result";
@@ -45,4 +45,4 @@ fi
 
 cd /github/workspace/
 
-clojure -Sdeps "{:deps {io.github.clj-holmes/clj-watson {:git/tag \"${clj_watson_tag}\" :git/sha \"${clj_watson_sha}\"}}}" -M -m clj-watson.cli ${output_cmd[@]}
+clojure -Sdeps "{:deps {io.github.clj-holmes/clj-watson {:git/tag \"${clj_watson_tag}\" :git/sha \"${clj_watson_sha}\"}}}" -M -m clj-watson.cli scan ${output_cmd[@]}

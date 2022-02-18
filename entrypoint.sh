@@ -12,14 +12,14 @@ database_strategy="$9"
 
 output_cmd="-p ${deps_edn_path}"
 
-#if [[ ! -z $aliases ]]; then
-#  IFS=','
-#  read -a strarr <<< "$aliases"
-#  for alias in "${strarr[@]}";
-#  do
-#    output_cmd="${output_cmd} -a ${alias}"
-#  done
-#fi
+if [[ ! -z $aliases ]]; then
+  IFS=','
+  read -a strarr <<< "$aliases"
+  for alias in "${strarr[@]}";
+  do
+    output_cmd="${output_cmd} -a ${alias}"
+  done
+fi
 
 if [[ $fail_on_result == "true" ]]; then
   output_cmd="${output_cmd} --fail-on-result";

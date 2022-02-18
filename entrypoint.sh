@@ -45,5 +45,4 @@ fi
 
 cd /github/workspace/
 
-clojure -M:deps
 clojure -Sdeps "{:deps {io.github.clj-holmes/clj-watson {:git/tag \"${clj_watson_tag}\" :git/sha \"${clj_watson_sha}\"}}}" -M -m clj-watson.cli ${output_cmd}

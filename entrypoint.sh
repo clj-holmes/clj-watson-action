@@ -9,14 +9,21 @@ output_type="$6"
 fail_on_result="$7"
 suggestion_fix="$8"
 
-
-echo "${aliases}"
 output_cmd="scan -p ${deps_edn_path}"
 
+if [[ ! -z $aliases ]]; then
+  IFS=','
+  read -a strarr <<< "$aliases"
+  for alias in "${strarr[@]}";
+  do
+    output_cmd="${output_cmd} -a ${alias}"
+  done
+fi
+
 if [[ $fail_on_result == "true" ]]; then
-  fail_on_result_cmd="--fail-on-result";
+  output_cmd="${output_cmd} --fail-on-result";
 else
-  fail_on_result_cmd="--no-fail-on-result";
+  output_cmd="${output_cmd} --no-fail-on-result";
 fi
 
 if [[ ! -z $dependency_check_properties ]]; then

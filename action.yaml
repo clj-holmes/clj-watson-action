@@ -1,10 +1,18 @@
 name: 'clj-watson (Clojure)'
 author: 'clj-holmes'
-description: 'Executes clj-watson dependencies security scan in clojure/clojurescript projects.'
+description: 'Executes clj-watson dependency security scan in clojure/clojurescript projects.'
 inputs:
+  clj-watson-tag:
+    description: "clj-watson release tag"
+    required: true
+  clj-watson-sha:
+    description: "clj-watson release sha"
+    required: true
   deps-edn-path:
     description: 'path to the deps.edn file to be scanned'
     required: true
+  alises:
+    description: 'vector of strings containing all aliases to be scanned alongside with the root deps'
   dependency-check-properties:
     description: 'path of a dependency-check properties file. If not provided uses resources/dependency-check.properties.'
     required: false
@@ -23,7 +31,10 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
+    - ${{ inputs.clj-watson-tag }}
+    - ${{ inputs.clj-watson-sha }}
     - ${{ inputs.deps-edn-path }}
+    - ${{ inputs.aliases }}
     - ${{ inputs.dependency-check-properties }}
     - ${{ inputs.output-type }}
     - ${{ inputs.fail-on-result }}

@@ -1,14 +1,16 @@
 #!/bin/bash
 
-deps_edn_path="$1"
-dependency_check_properties="$2"
-output_type="$3"
-fail_on_result="$4"
-suggestion_fix="$5"
+clj_watson_tag="$1"
+clj_watson_sha="$2"
+deps_edn_path="$3"
+aliases="$4"
+dependency_check_properties="$5"
+output_type="$6"
+fail_on_result="$7"
+suggestion_fix="$8"
 
-clj_watson_tag="v2.1.2"
-clj_watson_sha="5e43eae"
 
+echo "${aliases}"
 output_cmd="scan -p ${deps_edn_path}"
 
 if [[ $fail_on_result == "true" ]]; then

@@ -11,7 +11,7 @@ inputs:
   deps-edn-path:
     description: 'path to the deps.edn file to be scanned'
     required: true
-  alises:
+  aliases:
     description: 'aliases to be scanned alongside with the root deps. (separete which one using comma)'
   dependency-check-properties:
     description: 'path of a dependency-check properties file. If not provided uses resources/dependency-check.properties.'

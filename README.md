@@ -23,7 +23,7 @@ It's also possible to specify the following options:
 
 ```yaml
 - name: Dependency scan
-  uses: clj-holmes/clj-watson-action@aliases-support
+  uses: clj-holmes/clj-watson-action@main
   with:
     clj-watson-sha: "47d3321"
     clj-watson-tag: "v3.0.0"

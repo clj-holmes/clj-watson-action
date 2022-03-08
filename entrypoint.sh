@@ -42,6 +42,10 @@ if [[ ! -z $database_strategy ]]; then
   output_cmd="${output_cmd} -t ${database_strategy}";
 fi
 
+if [[ ! -z $output_file ]]; then
+  output_cmd="${output_cmd} > ${output_file}";
+fi
+
 cd /github/workspace/
 
 bash -c "${output_cmd}"

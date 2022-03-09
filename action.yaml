@@ -31,6 +31,10 @@ inputs:
     required: false
     default: 'stdout'
 
+  output-file:
+    description: 'Output file'
+    required: false
+
   fail-on-result:
     description: 'Enable or disable fail if results were found'
     required: false
@@ -52,6 +56,7 @@ runs:
     - ${{ inputs.fail-on-result }}
     - ${{ inputs.suggest-fix }}
     - ${{ inputs.database-strategy }}
+    - ${{ inputs.output-file }}
 
 branding:
   color: gray-dark

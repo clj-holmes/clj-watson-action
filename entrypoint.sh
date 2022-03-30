@@ -9,6 +9,7 @@ output_type="$6"
 fail_on_result="$7"
 suggestion_fix="$8"
 database_strategy="$9"
+output_file="$10"
 output_cmd="clojure -Sdeps \"{:deps {io.github.clj-holmes/clj-watson {:git/tag \\\"${clj_watson_tag}\\\" :git/sha \\\"${clj_watson_sha}\\\"}}}\" -M -m clj-watson.cli scan -p ${deps_edn_path}"
 
 if [[ ! -z $aliases ]]; then
@@ -48,4 +49,4 @@ fi
 
 cd /github/workspace/
 
-bash -c "${output_cmd}"
+bash -c "${output_cmd}" > "$output_file"

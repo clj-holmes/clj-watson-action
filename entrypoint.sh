@@ -49,7 +49,7 @@ fi
 
 cd /github/workspace/
 
-if [[ ! -z $dependency_check_properties ]]; then
+if [[ ! -z $output_file ]]; then
   bash -c "${output_cmd}" > "$output_file"
 else
   bash -c "${output_cmd}"

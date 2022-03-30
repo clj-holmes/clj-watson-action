@@ -20,6 +20,7 @@ It's also possible to specify the following options:
 - output-type (json, edn or stdout) [Default: stdout]
 - fail-on-result (true or false) [Default: false]
 - suggest-fix (true or false) [Default: false]
+- output-file [Default: nil]
 
 ```yaml
 - name: Dependency scan
@@ -33,6 +34,7 @@ It's also possible to specify the following options:
     output-type: 'stdout-simple'
     suggest-fix: 'true'
     fail-on-result: 'true'
+    output-file: result.txt
   env:
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```

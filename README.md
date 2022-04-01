@@ -26,8 +26,8 @@ It's also possible to specify the following options:
 - name: Dependency scan
   uses: clj-holmes/clj-watson-action@main
   with:
-    clj-watson-sha: "b4d877d"
-    clj-watson-tag: "v3.0.1"
+    clj-watson-sha: "9972a33"
+    clj-watson-tag: "v4.0.0"
     database-strategy: github-advisory
     aliases: clojure-lsp,test 
     deps-edn-path: 'deps.edn'

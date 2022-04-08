@@ -1,15 +1,15 @@
 #!/bin/bash
 
-clj_watson_tag="$1"
-clj_watson_sha="$2"
-deps_edn_path="$3"
-aliases="$4"
-dependency_check_properties="$5"
-output_type="$6"
-fail_on_result="$7"
-suggestion_fix="$8"
-database_strategy="$9"
-output_file="$10"
+clj_watson_tag="${1}"
+clj_watson_sha="${2}"
+deps_edn_path="${3}"
+aliases="${4}"
+dependency_check_properties="${5}"
+output_type="${6}"
+fail_on_result="${7}"
+suggestion_fix="${8}"
+database_strategy="${9}"
+output_file="${10}"
 output_cmd="clojure -Sdeps \"{:deps {io.github.clj-holmes/clj-watson {:git/tag \\\"${clj_watson_tag}\\\" :git/sha \\\"${clj_watson_sha}\\\"}}}\" -M -m clj-watson.cli scan -p ${deps_edn_path}"
 
 if [[ ! -z $aliases ]]; then

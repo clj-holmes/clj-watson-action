@@ -43,6 +43,10 @@ inputs:
     description: 'Suggest a new deps.edn file fixing all vulnerabilities found.'
     required: false
 
+  path:
+    description: 'Directory to run clj-watson on.'
+    required: false
+
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -57,6 +61,7 @@ runs:
     - ${{ inputs.suggest-fix }}
     - ${{ inputs.database-strategy }}
     - ${{ inputs.output-file }}
+    - ${{ inputs.path }}
 
 branding:
   color: gray-dark

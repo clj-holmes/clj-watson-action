@@ -43,7 +43,7 @@ inputs:
     description: 'Suggest a new deps.edn file fixing all vulnerabilities found.'
     required: false
 
-  working-directory:
+  path:
     description: 'Directory to run clj-watson on.'
     required: false
 
@@ -61,7 +61,7 @@ runs:
     - ${{ inputs.suggest-fix }}
     - ${{ inputs.database-strategy }}
     - ${{ inputs.output-file }}
-    - ${{ inputs.working-directory }}
+    - ${{ inputs.path }}
 
 branding:
   color: gray-dark

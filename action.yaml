@@ -44,7 +44,7 @@ inputs:
     required: false
 
   working-directory:
-    description: 'Directory to run action on.'
+    description: 'Directory to run clj-watson on.'
     required: false
 
 runs:

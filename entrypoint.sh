@@ -10,11 +10,13 @@ fail_on_result="${7}"
 suggestion_fix="${8}"
 database_strategy="${9}"
 output_file="${10}"
-working_dir="${11}"
+working_directory="${11}"
 output_cmd="clojure -Sdeps \"{:deps {io.github.clj-holmes/clj-watson {:git/tag \\\"${clj_watson_tag}\\\" :git/sha \\\"${clj_watson_sha}\\\"}}}\" -M -m clj-watson.cli scan -p ${deps_edn_path}"
 
 if [[ -d ${working_dir} ]]; then
-  cd "${working_dir}"
+  working_directory="/github/workspace/${working_dir}"
+else
+  working_directory="/github/workspace/"
 fi
 
 if [[ ! -z $aliases ]]; then
@@ -52,7 +54,7 @@ if [[ ! -z $output_file ]]; then
   output_cmd="${output_cmd} > ${output_file}";
 fi
 
-cd /github/workspace/
+cd "${working_directory}"
 
 if [[ ! -z $output_file ]]; then
   bash -c "${output_cmd}" > "$output_file"

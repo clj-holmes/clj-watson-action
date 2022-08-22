@@ -13,10 +13,8 @@ output_file="${10}"
 path="${11}"
 output_cmd="clojure -Sdeps \"{:deps {io.github.clj-holmes/clj-watson {:git/tag \\\"${clj_watson_tag}\\\" :git/sha \\\"${clj_watson_sha}\\\"}}}\" -M -m clj-watson.cli scan -p ${deps_edn_path}"
 
-if [[ -d ${working_dir} ]]; then
-  path="/github/workspace/${path}"
-else
-  path="/github/workspace/"
+if [[ -d ${path} ]]; then
+  cd ${path}
 fi
 
 if [[ ! -z $aliases ]]; then
@@ -53,8 +51,6 @@ fi
 if [[ ! -z $output_file ]]; then
   output_cmd="${output_cmd} > ${output_file}";
 fi
-
-cd "${path}"
 
 if [[ ! -z $output_file ]]; then
   bash -c "${output_cmd}" > "$output_file"

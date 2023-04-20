@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:kinetic
 
 ENV DEBIAN_FRONTEND=noninteractive 
 RUN apt-get update && apt-get upgrade -y && apt-get install -y curl default-jre git

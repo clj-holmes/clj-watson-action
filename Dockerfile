@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:22.10
 
 ENV DEBIAN_FRONTEND=noninteractive 
 RUN apt-get update && apt-get upgrade -y && apt-get install -y curl default-jre git
